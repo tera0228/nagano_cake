@@ -1,0 +1,29 @@
+<!-- 顧客用header部分テンプレートファイル -->
+
+      <nav>
+        <!-- headerロゴ -->
+        <%= image_tag 'nagano_cake_logo' %>
+          <ul>
+            <!-- 顧客がログインしている場合のヘッダーリスト -->
+            <li>
+              <%= link_to customer_path(current_customer) do %>
+              <span>マイページ</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path do %>
+              <span>商品一覧</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to cart_items_path do %>
+              <span>カート一覧</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete do %>
+              <span>ログアウト</span>
+              <% end %>
+            </li>
+          </ul>
+      </nav>

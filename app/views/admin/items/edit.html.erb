@@ -1,0 +1,40 @@
+<h2>商品編集</h2>
+<%= form_for(@item, url: edit_admin_item_path) do |item| %>
+
+  <div>
+    <label>商品画像</label>
+    <%= item.file_field :item_image %>
+  </div>
+
+  <div>
+    <label>商品名</label>
+    <%= item.text_field :name %>
+  </div>
+
+  <div>
+    <label>商品説明</label>
+    <%= item.text_area :introduction %>
+  </div>
+
+  <div>
+    <label>ジャンル</label>
+    <%= item.collection_select(:genre_id, Genre.all, :id, :name) %>
+  </div>
+
+  <div>
+    <label>税抜価格</label>
+    <%= item.text_field :price %>円
+  </div>
+
+  <div>
+    <label>販売ステータス</label>
+    <%= item.radio_button :is_active, true %>
+    <%= item.label :is_active, "販売中" %>
+    <%= item.radio_button :is_active, false %>
+    <%= item.label :is_active, "販売停止中" %>
+  </div>
+
+  <div class="actions">
+    <%= item.submit "変更を保存" %>
+  </div>
+<% end %>
