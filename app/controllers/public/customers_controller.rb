@@ -23,10 +23,12 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
 
-  def destroy
+  def quit
     @customer = Customer.find(params[:id])
-    @customer.destroy
+    @customer.update(is_active: false)
     flash[:notice] = "退会処理が完了しました"
+    # 退会処理後ログアウトさせる処理
+    reset_session
     redirect_to root_path
   end
 

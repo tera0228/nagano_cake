@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # 顧客用リソース設定
   scope module: :public do
     resources :customers, only:[:show, :edit, :update]
+    patch '/customers/:id/quit' => "customers#quit", as: :quit
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:index, :update, :create, :destroy]
     resources :orders, only:[:new, :show, :index]
