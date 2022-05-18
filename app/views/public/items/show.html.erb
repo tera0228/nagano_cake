@@ -1,0 +1,12 @@
+<!-- 顧客側商品詳細画面 -->
+<%= form_with model: @item do |item| %>
+<div>
+  <%= image_tag item.item_image %>
+</div>
+
+<div>
+  <%= item.name %><br>
+  <%= item.introduction %><br>
+  <%= item.price %>
+</div>
+<% end %>
