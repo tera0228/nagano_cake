@@ -1,12 +1,11 @@
 <!-- 顧客側商品詳細画面 -->
-<%= form_with model: @item do |item| %>
+
 <div>
-  <%= image_tag item.item_image %>
+  <%= image_tag @item.item_image, size: "250x200" %>
 </div>
 
 <div>
-  <%= item.name %><br>
-  <%= item.introduction %><br>
-  <%= item.price %>
+  <strong><%= @item.name %></strong><br>
+  <p><%= @item.introduction %></p><br>
+  <h3>¥<%= (@item.price * 1.1).to_i %>(税込)</h3>
 </div>
-<% end %>
