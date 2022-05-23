@@ -1,6 +1,10 @@
 <!-- カート一覧画面 -->
 <h2>ショッピングカート</h2>
 
+<div class="actions">
+  <%= button_to "カートを空にする", destroy_all_path(@cart_items), method: :delete, data: {confirm: "本当に消しますか？"} %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -12,10 +16,31 @@
     </tr>
   </thead>
   <tbody>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <% @cart_items.each do |cart_item| %>
+      <td>
+          <%= image_tag cart_item.item.item_image, size: "100x80" %>
+          <%= cart_item.item.name %>
+      </td>
+      <td><%= (cart_item.item.price * 1.1).to_i %></td>
+      <td>
+        <%= cart_item.collection_select(:item_id, @cart_items, :id, :amount) %>
+        <%= form_with model: @cart_items, url: "/cart_item", method: :patch do |cart_item| %>
+          <%= cart_item.submit "変更" %>
+        <% end %>
+      </td>
+      <td><%= cart_item.subtotal %></td>
+      <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete %></td>
+    <% end %>
   </tbody>
+</table>
+
+<div>
+  <%= link_to "買い物を続ける", root_path %>
+</div>
+
+<table>
+  <tr>
+    <th>合計金額</th>
+    <td></td>
+  </tr>
 </table>

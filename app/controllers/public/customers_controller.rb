@@ -29,6 +29,7 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理が完了しました"
     # 退会処理後ログアウトさせる処理
     reset_session
+    # 退会処理後、トップ画面へ遷移
     redirect_to root_path
   end
 

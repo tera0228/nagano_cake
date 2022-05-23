@@ -8,4 +8,11 @@
   <strong><%= @item.name %></strong><br>
   <p><%= @item.introduction %></p><br>
   <h3>¥<%= (@item.price * 1.1).to_i %>(税込)</h3>
+
+  <%= form_with model: @inside_cart, url: '/cart_items', method: :post do |inside_cart| %>
+    <%= inside_cart.hidden_field :customer_id, :value => current_customer.id %>
+    <%= inside_cart.hidden_field :item_id, :value => @item.id %>
+    <%= inside_cart.select :amount, *[1..10] %>
+    <%= inside_cart.submit "カートに入れる" %>
+  <% end %>
 </div>
