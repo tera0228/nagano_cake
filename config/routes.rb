@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # 顧客用退会確認画面の取得
   get '/customers' => "public/customers#leave"
 
+  get '/orders/:id/thanks' => "public/orders#thanks"
+
   # 顧客用リソース設定
   scope module: :public do
     resources :customers, only:[:show, :edit, :update]

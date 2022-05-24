@@ -1,0 +1,19 @@
+<h2>注文情報入力</h2>
+
+<%= form_with model: @order do |order| %>
+<div>
+    <h3>支払方法</h3><br>
+
+    <%= order.radio_button :pay_type, "credit_card" %>
+    <%= order.label :pay_type, "クレジットカード" %><br>
+
+    <%= order.radio_button :pay_type, "transfer" %>
+    <%= order.label :pay_type, "銀行振込" %><br>
+
+    <h3>お届け先</h3>
+
+    <%= order.radio_button :address %>
+    <%= order.label :address, "ご自身の住所" %><br>
+    <%= order.address.name %>
+</div>
+<% end %>

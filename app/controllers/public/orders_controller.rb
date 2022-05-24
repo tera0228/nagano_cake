@@ -1,4 +1,11 @@
 class Public::OrdersController < ApplicationController
+  def new
+    @order = Order.new(order_params)
+  end
+
+  def check
+  end
+
   private
 
   def order_params
