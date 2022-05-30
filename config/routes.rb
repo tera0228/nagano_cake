@@ -25,8 +25,10 @@ Rails.application.routes.draw do
     resources :cart_items, only:[:index, :update, :create, :destroy]
     delete '/cart_items/:id/destroy_all' => "cart_items#destroy_all", as: :destroy_all
     resources :orders, only:[:new, :show, :index]
+    # 注文確定画面の取得
+    post 'orders/confirm' => "orders#confirm", as: :confirm
     # 購入完了画面の取得
-    get 'orders/:id/thanks' => "orders#thanks", as: :thanks
+    get 'orders/thanks' => "orders#thanks", as: :thanks
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
