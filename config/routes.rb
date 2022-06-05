@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     # 注文確定画面の取得
     post 'orders/confirm' => "orders#confirm", as: :confirm
     # 購入完了画面の取得
-    get 'orders/thanks' => "orders#thanks", as: :thanks
+    get 'orders/thanks' => "orders#thanks", as: :thank
     resources :orders, only:[:new, :show, :index, :create]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end

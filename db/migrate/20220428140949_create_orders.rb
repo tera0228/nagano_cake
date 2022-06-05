@@ -20,7 +20,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :order_price
 
       # 支払方法
-      t.string :pay_type
+      t.integer :pay_type
 
       # 受注ステータス
       t.boolean :is_active,         null: false, default: true

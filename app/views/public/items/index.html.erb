@@ -4,7 +4,7 @@
 <% @items.each do |item| %>
 <div>
   <%= link_to item_path(item.id) do %>
-  <%= image_tag item.item_image, size: "250x200" %><br>
+    <%= image_tag item.get_item_image(250, 200) %><br>
   <% end %>
   <label>商品名</label><br>
   ¥<%= item.price %>
