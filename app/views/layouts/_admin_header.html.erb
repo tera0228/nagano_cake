@@ -9,19 +9,23 @@
             <!-- 管理者がログインしている場合のヘッダーリスト -->
             <li>
               <%= link_to admin_items_path do %>
-              <span>商品一覧</span>
+                <span>商品一覧</span>
               <% end %>
             </li>
-            <li><span>会員一覧</span></li>
+            <li>
+              <%= link_to admin_customers_path do %>
+                <span>会員一覧</span>
+              <% end %>
+            </li>
             <li><span>注文履歴一覧</span></li>
             <li>
               <%= link_to admin_genres_path do %>
-              <span>ジャンル一覧</span>
+                <span>ジャンル一覧</span>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_admin_session_path, method: :delete do %>
-              <span>ログアウト</span>
+                <span>ログアウト</span>
               <% end %>
             </li>
           </ul>

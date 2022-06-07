@@ -77,7 +77,7 @@ class Public::OrdersController < ApplicationController
       end
       # 注文内容を注文明細テーブルへ格納後、カート情報を削除し購入完了画面へ遷移
       current_customer.cart_items.destroy_all
-      redirect_to thanks_path
+      redirect_to thank_path
     else
       render :new
     end
