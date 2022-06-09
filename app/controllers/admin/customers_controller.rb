@@ -17,7 +17,7 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       flash[:notice] = '個人情報を編集しました'
-      redirect_to admin_customer_path(@customer)
+      redirect_to admin_customer_path
     else
       flash[:notice] = '個人情報の編集に失敗しました'
       render :edit
@@ -27,6 +27,6 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customers).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_active)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :is_active)
   end
 end
