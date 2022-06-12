@@ -5,25 +5,25 @@
     <tr>
       <th>購入者</th>
       <td>
-        <%= @order_detail.order.customer.last_name %>
-        <%= @order_detail.order.customer.first_name %>
+        <%= @order.customer.last_name %>
+        <%= @order.customer.first_name %>
       </td>
     </tr>
     <tr>
       <th>注文日</th>
-      <td><%= @order_detail.created_at.strftime("%Y/%m/%d") %></td>
+      <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
     </tr>
     <tr>
       <th>配送先</th>
       <td>
-        <%= "〒"+@order_detail.order.postal_code %>
-        <%= @order_detail.order.address %><br>
-        <%= @order_detail.order.name %>
+        <%= "〒"+@order.postal_code %>
+        <%= @order.address %><br>
+        <%= @order.name %>
       </td>
     </tr>
     <tr>
       <th>支払方法</th>
-      <td><%= @order_detail.order.pay_type_i18n %></td>
+      <td><%= @order.pay_type_i18n %></td>
     </tr>
   </table>
 
@@ -37,11 +37,35 @@
       </tr>
     </thead>
     <tbody>
-      <% @order
-        <td><%= .item.name %></td>
-        <td><%= %></td>
-        <td><%= %></td>
-        <td><%= %></td>
+      <% @order_details.each do |t| %>
+        <tr>
+          <td><%= t.item.name %></td>
+          <td><%= (t.item.price * 1.1).floor%></td>
+          <td><%= t.amount %></td>
+          <td><%= t.subtotal %></td>
+        </tr>
+      <% end %>
     </tbody>
+  </table>
+
+  <table>
+    <tr>
+      <th>商品合計</th>
+      <td>
+        <% @total = 0%>
+        <% @order_details.each do |a| %>
+          <% @total += a.subtotal %>
+        <% end %>
+        <%= @total %>
+      </td>
+    </tr>
+    <tr>
+      <th>送料</th>
+      <td><%= @order.postage %></td>
+    </tr>
+    <tr>
+      <th>請求合計金額</th>
+      <td><%= @total += @order.postage %></td>
+    </tr>
   </table>
 </div>
