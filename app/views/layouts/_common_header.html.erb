@@ -1,31 +1,31 @@
 <!-- 顧客、管理者共通部分テンプレートファイル -->
 
-      <nav>
         <!-- headerロゴ -->
-        <a href="/">
+        <a class="navbar-brand" href="/">
           <%= image_tag 'nagano_cake_logo' %>
         </a>
-          <ul>
-            <!-- 顧客、管理者がログインしている場合のヘッダーリスト -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <!-- 顧客、管理者共通のヘッダーリスト -->
             <li>
-              <%= link_to about_path do %>
+              <%= link_to about_path, class: "nav-link text-dark" do %>
               <span>About</span>
               <% end %>
             </li>
             <li>
-              <%= link_to items_path do %>
+              <%= link_to items_path, class: "nav-link text-dark" do %>
               <span>商品一覧</span>
               <% end %>
             </li>
             <li>
-              <%= link_to new_customer_registration_path do %>
+              <%= link_to new_customer_registration_path, class: "nav-link text-dark" do %>
               <span>新規登録</span>
               <% end %>
             </li>
             <li>
-              <%= link_to new_customer_session_path do %>
+              <%= link_to new_customer_session_path, class: "nav-link text-dark" do %>
               <span>ログイン</span>
               <% end %>
             </li>
           </ul>
-      </nav>
+        </div>
