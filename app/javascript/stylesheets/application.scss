@@ -6,3 +6,19 @@
   margin-right: 3px;
   display: inline-block;
 }
+
+.footer {
+  background-color: #cd853f;
+}
+
+.img-box {
+  position: relative;
+}
+
+.img-box p {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 70px;
+  color: #fff;
+}
