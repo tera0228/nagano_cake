@@ -4,9 +4,15 @@
         <a class="navbar-brand" href="/">
           <%= image_tag 'nagano_cake_logo' %>
         </a>
+
+        <div class="col-sm-4 d-flex justify-contene-center">
+          ようこそ、<%= current_customer.last_name %> <%= current_customer.first_name %>さん！
+        </div>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <!-- 顧客がログインしている場合のヘッダーリスト -->
@@ -31,8 +37,4 @@
               <% end %>
             </li>
           </ul>
-        </div>
-
-        <div class="guests message">
-          ようこそ、<%= current_customer.last_name %> <%= current_customer.first_name %>さん！
         </div>

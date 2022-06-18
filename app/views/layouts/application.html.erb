@@ -16,15 +16,15 @@
     <header class="header">
       <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container">
-            <!-- 顧客がログインしているかいないか確認 -->
-            <% if customer_signed_in? %>
-              <%= render 'layouts/customer_header' %>
-            <!-- 管理者がログインしているかいないか確認 -->
-            <% elsif admin_signed_in? %>
-              <%= render 'layouts/admin_header' %>
-            <% else %>
-              <%= render 'layouts/common_header' %>
-            <% end %>
+          <!-- 顧客がログインしているかいないか確認 -->
+          <% if customer_signed_in? %>
+            <%= render 'layouts/customer_header' %>
+          <!-- 管理者がログインしているかいないか確認 -->
+          <% elsif admin_signed_in? %>
+            <%= render 'layouts/admin_header' %>
+          <% else %>
+            <%= render 'layouts/common_header' %>
+          <% end %>
         </div>
     </header>
 
