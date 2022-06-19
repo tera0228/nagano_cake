@@ -1,12 +1,26 @@
 <!-- 顧客側商品一覧画面 -->
-<h2>商品一覧</h2>
+<div class="container">
+  <div class="row">
+    <h2 class="mt-5">商品一覧</h2>
+  </div>
 
-<% @items.each do |item| %>
-<div>
-  <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_item_image(250, 200) %><br>
-  <% end %>
-  <label>商品名</label><br>
-  ¥<%= item.price %>
+  <div class="row mt-3">
+    <% @items.each do |item| %>
+    <div class="col-md-4">
+      <div class="card md-3 mt-3">
+        <div class="card">
+          <div>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.item_image, class: "item_image" %>
+            <% end %>
+          </div>
+          <div class="card-body text-center">
+            <p class="card-title"><%= item.name %></p>
+            <p class="card-text">¥<%= item.price %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
-<% end %>

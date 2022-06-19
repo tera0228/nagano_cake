@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+ .admin-item-new-taxform {
+  width: calc(100% - 20px);
+  margin-right: 3px;
+  display: inline-block;
+}
+
+.footer {
+  background-color: #cd853f;
+}
+
+.img-box {
+  position: relative;
+}
+
+.img-box p {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 70px;
+  color: #fff;
+}
+
+.item_image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}

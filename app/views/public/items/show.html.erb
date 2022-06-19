@@ -1,18 +1,39 @@
 <!-- 顧客側商品詳細画面 -->
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <%= image_tag @item.get_item_image(350, 300) %>
+    </div>
 
-<div>
-  <%= image_tag @item.get_item_image(250, 200) %>
-</div>
+    <div class="col-md-6">
+      <table class="table table-borderless">
+        <tr>
+          <th class="col-sm-3"><%= @item.name %></th>
+        </tr>
+        <tr>
+          <td class="col-sm-3"><%= @item.introduction %></td>
+        </tr>
+      </table>
 
-<div>
-  <strong><%= @item.name %></strong><br>
-  <p><%= @item.introduction %></p><br>
-  <h3>¥<%= (@item.price * 1.1).to_i %>(税込)</h3>
+      <div class="col-sm-6">
+        <h3>¥<%= (@item.price * 1.1).to_i %>(税込)</h3>
+      </div>
 
-  <%= form_with model: @inside_cart, url: '/cart_items', method: :post do |inside_cart| %>
-    <%= inside_cart.hidden_field :customer_id, :value => current_customer.id %>
-    <%= inside_cart.hidden_field :item_id, :value => @item.id %>
-    <%= inside_cart.select :amount, *[1..10] %>
-    <%= inside_cart.submit "カートに入れる" %>
-  <% end %>
+      <div class="col-md-6 mt-5">
+        <%= form_with model: @inside_cart, url: '/cart_items', method: :post do |inside_cart| %>
+          <%= inside_cart.hidden_field :customer_id, :value => current_customer.id %>
+          <%= inside_cart.hidden_field :item_id, :value => @item.id %>
+        <div class="form-group row">
+          <div class="col-sm-8">
+            <%= inside_cart.select :amount, *[1..10],{prompt: "個数選択"}, {:class => "form-control"} %>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+            <%= inside_cart.submit "カートに入れる", class: "btn btn-success" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
